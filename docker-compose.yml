@@ -1,0 +1,43 @@
+version: '2'
+services:
+  redash:
+    image: redash/redash:latest
+    ports:
+      - "5000"
+    links:
+      - redis
+      - postgres
+      - mysql
+    environment:
+      REDASH_STATIC_ASSETS_PATH: "../rd_ui/dist/"
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
+      REDASH_COOKIE_SECRET: veryverysecret
+  redis:
+    image: redis:3.2
+  postgres:
+    image: postgres:9.5
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  redash-nginx:
+    image: redash/nginx:latest
+    ports:
+      - "9292:80"
+    links:
+      - redash
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/create_for_mysql.sql:/create_for_mysql.sql:ro
+      - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/data.sql:/data.sql:ro
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  postgres:
+    driver: local
+  mysql:
+    driver: local
