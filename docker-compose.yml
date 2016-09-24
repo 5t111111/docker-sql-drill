@@ -23,7 +23,7 @@ services:
       - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/create_for_postgres.sql:/create_for_postgres.sql:ro
       - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/data.sql:/data.sql:ro
       - ./docker-entrypoint-initdb-mysql.d:/docker-entrypoint-initdb.d:ro
-  redash-nginx:
+  nginx:
     image: redash/nginx:latest
     ports:
       - "9292:80"
