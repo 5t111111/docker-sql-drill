@@ -29,7 +29,7 @@ services:
   mysql:
     image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ""
     volumes:
       - mysql:/var/lib/mysql
       - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/create_for_mysql.sql:/create_for_mysql.sql:ro
