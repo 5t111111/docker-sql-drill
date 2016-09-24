@@ -20,6 +20,9 @@ services:
     image: postgres:9.5
     volumes:
       - postgres:/var/lib/postgresql/data
+      - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/create_for_postgres.sql:/create_for_postgres.sql:ro
+      - ./SQL_DRILL/HTML_REFERENCE/sql/for_sample_db/data.sql:/data.sql:ro
+      - ./docker-entrypoint-initdb-mysql.d:/docker-entrypoint-initdb.d:ro
   redash-nginx:
     image: redash/nginx:latest
     ports:
