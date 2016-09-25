@@ -44,7 +44,7 @@ $ cd docker-sql-drill
 
 ### Docker コンテナの起動
 
-docker-sql-drill は複数のコンテナから構成されているため docker-compose で起動します。
+docker-sql-drill は複数のコンテナから構成されているため docker-compose で起動します。初回は Docker イメージを pull するため時間がかかります。
 
 ```
 $ docker-compose up
