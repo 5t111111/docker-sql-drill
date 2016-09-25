@@ -44,7 +44,7 @@ $ cd docker-sql-drill
 
 ### Docker コンテナの起動
 
-docker-sql-drill は複数のコンテナから構成されているため docker-compose で起動します。初回は Docker イメージを pull するため時間がかかります。
+docker-sql-drill は複数のコンテナから構成されているため docker-compose で起動します。初回は Docker イメージを pull してデータ投入を行うため時間がかかります。
 
 ```
 $ docker-compose up
@@ -79,7 +79,7 @@ http://localhost:9001 に接続します。
 4. 以下を入力
   - Name: MySQL (任意なのでなんでもOK)
   - Database name: sql_drill
-  - Host: `docker ps` で出力される MySQL のコンテナ名 (通常は「__dockersqldrill_mysql_1__」になる)
+  - Host: mysql
   - Password: sql_drill
   - Port: 3306
   - User: sql_drill
@@ -94,7 +94,7 @@ http://localhost:9001 に接続します。
 4. 以下を入力
   - Name: PostgreSQL (任意なのでなんでもOK)
   - Database name: sql_drill
-  - Host: `docker ps` で出力される PostgreSQL のコンテナ名 (通常は「__dockersqldrill_postgres_1__」になる)
+  - Host: postgres
   - Password: sql_drill
   - Port: 5432
   - User: sql_drill
