@@ -30,8 +30,7 @@ services:
     links:
       - redash
   mysql:
-    image: mysql:5.7
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    image: 5t111111/mysql:5.7
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
