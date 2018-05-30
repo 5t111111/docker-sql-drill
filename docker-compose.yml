@@ -30,7 +30,7 @@ services:
     links:
       - redash
   mysql:
-    image: 5t111111/mysql:5.7
+    image: 5t111111/mysql-ja:5.7
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
